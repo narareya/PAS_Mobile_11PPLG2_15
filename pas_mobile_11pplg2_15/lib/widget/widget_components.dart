@@ -68,14 +68,20 @@ class ShowCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-      child: ListTile(
-        leading: Image.network(image, width: 60),
-        title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
-        trailing: IconButton(
-          icon: Icon(Icons.bookmark_add, color: Colors.deepPurple),
-          onPressed: onBookmark,
+      child: Container(
+        height: 120,
+        padding: EdgeInsets.all(5),
+        alignment: Alignment.center,
+        child: ListTile(
+          leading: Image.network(image, height: 100, width: 70, fit: BoxFit.cover,),
+          title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
+          trailing: IconButton(
+            icon: Icon(Icons.bookmark_add, color: Colors.deepPurple),
+            onPressed: onBookmark,
         ),
       ),
+      )
+      
     );
   }
 }
@@ -95,8 +101,11 @@ class FavoriteCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
       child: ListTile(
-        leading: Image.network(item['image'], width: 60),
-        title: Text(item['title']),
+        leading: Image.network(
+          item['image'] ?? "https://via.placeholder.com/60", 
+          width: 60,
+          errorBuilder: (context, error, stackTrace) => Icon(Icons.broken_image),),
+        title: Text(item['title'] ?? "No title"),
         trailing: IconButton(
           icon: Icon(Icons.delete, color: Colors.red),
           onPressed: onDelete,

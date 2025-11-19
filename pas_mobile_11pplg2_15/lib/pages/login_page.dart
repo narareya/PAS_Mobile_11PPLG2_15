@@ -21,8 +21,11 @@ class LoginPage extends StatelessWidget {
             CustomButton(onPressed: () {
               authController.login();
             }, label: "Login"),
+
+            SizedBox(height: 15,),
+
             CustomButton(onPressed: () {
-              authController.register();
+              Get.toNamed(AppRoutes.registerPage);
             }, label: "Register")
           ],
         ),

@@ -20,24 +20,26 @@ class ProfilePage extends StatelessWidget {
 
             ),
             const SizedBox(height: 20),
-            // Text(
-            //     authController.displayName.value.isNotEmpty ? authController.displayName.value : "Guest user",
-            //     style: TextStyle(
-            //       fontSize: 22,
-            //       fontWeight: FontWeight.bold,
-            //     ),
-            //   ),
-            //   const SizedBox(height: 8),
+            Text(
+                "Esta Janitra Lituhayu",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            
+              const SizedBox(height: 8),
 
             //   // Email / Bio
-            //   Text(
-            //     authController.email.value.isNotEmpty ? authController.email.value : "No Email",
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       color: Colors.grey,
-            //     ),
-            //   ),
-            //   const SizedBox(height: 30),
+            Text(
+                "est4j4.esta@gmail.com",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+              
+              const SizedBox(height: 30),
 
 
               CustomButton(

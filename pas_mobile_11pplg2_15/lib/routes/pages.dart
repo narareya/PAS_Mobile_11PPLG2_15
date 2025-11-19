@@ -14,10 +14,10 @@ import 'package:pas_mobile_11pplg2_15/routes/routes.dart';
 
 class AppPages {
   static final pages = [
-    GetPage(name: AppRoutes.mainPage, page: () => HomePage(), bindings: [MainBinding(), ShowBinding(), AuthBinding()]),
+    GetPage(name: AppRoutes.mainPage, page: () => HomePage(), bindings: [MainBinding(), ShowBinding(), AuthBinding(), FavoriteBinding()]),
     GetPage(name: AppRoutes.loginPage, page: () => LoginPage(), binding: AuthBinding()),
     GetPage(name: AppRoutes.registerPage, page: () => RegisterPage(), binding: AuthBinding()),
-    GetPage(name: AppRoutes.showPage, page: () => ShowPage(), binding: ShowBinding()),
+    GetPage(name: AppRoutes.showPage, page: () => ShowPage(), bindings: [ShowBinding(), FavoriteBinding()]),
     GetPage(name: AppRoutes.favoritePage, page: () => FavoritePage(), binding: FavoriteBinding()),
     GetPage(name: AppRoutes.splashScreen, page: () => SplashscreenPage(), binding: SplashscreenBinding()),
   ];

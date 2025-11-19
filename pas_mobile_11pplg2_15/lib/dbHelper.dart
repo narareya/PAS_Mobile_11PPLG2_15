@@ -30,9 +30,9 @@ class DBHelper {
   }
 
   // add
-  Future<int> addFavorite(String title) async {
+  Future<int> addFavorite(int id, String title, String image) async {
     final client = await db;
-    return client.insert("favorites", {"title": title});
+    return client.insert("favorites", {"id":id, "title": title});
   }
 
   // get
