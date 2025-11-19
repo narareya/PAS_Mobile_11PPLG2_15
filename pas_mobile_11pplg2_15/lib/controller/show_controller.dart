@@ -24,9 +24,9 @@ class ShowController extends GetxController {
       print("json response "+ response.body.toString());
 
       if(response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        final List standings = data['table'];
-        listShows.assignAll(standings.map((e) => ShowModel.fromJson(e),).toList());
+        final List<dynamic> data = jsonDecode(response.body);
+        listShows.assignAll(data.map((e) => ShowModel.fromJson(e)).toList()
+        );
       } else {
         Get.snackbar("Error", "Message error dari BE");
       }

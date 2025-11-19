@@ -6,13 +6,18 @@ class FavoriteController extends GetxController {
   
   var favoriteList = <Map<String, dynamic>>[].obs;
 
+  Future<void> fetchFavorites() async {
+    await loadFavorites();
+  }
+
   Future<void> loadFavorites() async {
     var data = await db.getFavorites();
+    print("DEBUG DB DATA: $data");
     favoriteList.assignAll(data);
   }
 
-  Future<void> addFavorite(String title) async {
-    await db.addFavorite(title);
+  Future<void> addFavorite(int id, String title, String image) async {
+    await db.addFavorite(id, title, image);
     loadFavorites(); // refresh list
   }
 

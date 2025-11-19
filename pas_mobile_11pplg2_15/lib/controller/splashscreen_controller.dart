@@ -13,12 +13,12 @@ class SplashscreenController extends GetxController{
   void checkLogin() async {
     final prefs = await SharedPreferences.getInstance();
     await Future.delayed(Duration(seconds: 3));
-    if (prefs.getString("username") != null) {
-      
+
+    final token = prefs.getString("token");
+
+    if (token != null && token.isNotEmpty) {
       Get.offAllNamed(AppRoutes.mainPage);
     } else {
-      // routes ke login
-      
       Get.offAllNamed(AppRoutes.loginPage);
     }
   }

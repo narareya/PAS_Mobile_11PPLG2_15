@@ -28,10 +28,11 @@ class ShowModel {
     Network? webChannel;
     Country? dvdCountry;
     Externals externals;
-    Image image;
+    Image? image;
     String summary;
     int updated;
     Links links;
+    bool isBookmarked;
 
     ShowModel({
         required this.id,
@@ -53,10 +54,11 @@ class ShowModel {
         required this.webChannel,
         required this.dvdCountry,
         required this.externals,
-        required this.image,
+        this.image,
         required this.summary,
         required this.updated,
         required this.links,
+        required this.isBookmarked,
     });
 
     factory ShowModel.fromJson(Map<String, dynamic> json) => ShowModel(
@@ -79,10 +81,10 @@ class ShowModel {
         webChannel: json["webChannel"] == null ? null : Network.fromJson(json["webChannel"]),
         dvdCountry: json["dvdCountry"] == null ? null : Country.fromJson(json["dvdCountry"]),
         externals: Externals.fromJson(json["externals"]),
-        image: Image.fromJson(json["image"]),
+        image: json["image"] == null ? null : Image.fromJson(json['image']),
         summary: json["summary"],
         updated: json["updated"],
-        links: Links.fromJson(json["_links"]),
+        links: Links.fromJson(json["_links"]), isBookmarked: false,
     );
 
     Map<String, dynamic> toJson() => {
@@ -105,7 +107,7 @@ class ShowModel {
         "webChannel": webChannel?.toJson(),
         "dvdCountry": dvdCountry?.toJson(),
         "externals": externals.toJson(),
-        "image": image.toJson(),
+        "image": image?.toJson(),
         "summary": summary,
         "updated": updated,
         "_links": links.toJson(),
